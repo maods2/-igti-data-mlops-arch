@@ -70,6 +70,19 @@ That's the basic workflow for using pipenv. It provides a simple and convenient 
 
 # Install the module into your pipenv environment using pip:
 
+
+
+
+Generate a lock file:
+
 ```bash
-pip install .
+pipenv lock
 ```
+
+Generate a requirements.txt file with only production dependencies:
+
+```bash
+pipenv lock --requirements > ./src/requirements.txt
+pipenv lock requirements > ./src/requirements.txt
+```
+
