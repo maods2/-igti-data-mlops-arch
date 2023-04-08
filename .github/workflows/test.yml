@@ -33,4 +33,4 @@ jobs:
         blue . && isort  .
 
     - name: Run tests
-      run: pytest -s -x --cov=src -vv
+      run: pytest -s -x --cov=src -vv --cov-fail-under=70
