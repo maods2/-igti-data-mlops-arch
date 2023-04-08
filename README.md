@@ -66,3 +66,10 @@ That's the basic workflow for using pipenv. It provides a simple and convenient 
  ```
  
  If you desire to create new tasks you shoud inset them on the "pyproject.toml"
+
+
+# Install the module into your pipenv environment using pip:
+
+```bash
+pip install .
+```
