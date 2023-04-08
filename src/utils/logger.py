@@ -1,5 +1,6 @@
-import logging
 import inspect
+import logging
+
 
 class MyLogger:
     def __init__(self):
@@ -7,7 +8,9 @@ class MyLogger:
         self.logger.setLevel(logging.DEBUG)
         handler = logging.StreamHandler()
         handler.setLevel(logging.DEBUG)
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        formatter = logging.Formatter(
+            '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        )
         handler.setFormatter(formatter)
         self.logger.addHandler(handler)
 

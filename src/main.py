@@ -1,12 +1,14 @@
-import os
 import json
-from utils.logger import MyLogger
-from rest.call import get_stock_data
-from pipeline.processing import generate_indicators
+import os
+
 from bigquery.data_handler import inset_into_bigquery
+from pipeline.processing import generate_indicators
 from postgres.data_handler import query_stocks_available
+from rest.call import get_stock_data
+from utils.logger import MyLogger
 
 logger = MyLogger().logger
+
 
 def data_pipeline(request):
     """
@@ -26,25 +28,21 @@ def data_pipeline(request):
     request_body_dict = json.loads(request_body_str)
     property_value = request_body_dict.get('pipeline_type')
 
-    if property_value == "Daily":
+    if property_value == 'Daily':
         result = start_daily_pipeline()
-    
-    elif property_value == "Weekly":
-        result = start_weekly_pipeline() 
+
+    elif property_value == 'Weekly':
+        result = start_weekly_pipeline()
 
     else:
-        return "error", 500
+        return 'error', 500
 
     logger.info(f'The value of response is {result}')
     return result
 
 
-
-
-
 def start_daily_pipeline() -> bool:
-    """ This function is responsible for run the datapipeline
-    """
+    """This function is responsible for run the datapipeline"""
     # list_of_stocks = ["EGIE3.SA"]
     list_of_stocks = query_stocks_available()
 
@@ -52,13 +50,10 @@ def start_daily_pipeline() -> bool:
         data = get_stock_data(stock_code)
         data = generate_indicators(data)
         inset_into_bigquery(data)
-    
+
     return True
 
 
 def start_weekly_pipeline() -> bool:
-    """ This function is responsible for run the datapipeline
-    """
+    """This function is responsible for run the datapipeline"""
     pass
-
-
