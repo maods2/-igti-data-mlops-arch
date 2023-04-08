@@ -1,9 +1,12 @@
+import logging
+
 import pandas as pd
 
-from utils.logger import MyLogger
+# from utils.logger import MyLogger
 
 ERROR_MESSAGE = "Data does not have 'Close' attribute."
-logger = MyLogger().logger
+# logger = MyLogger().logger
+logger = logging
 
 
 def generate_indicators(stock_data: pd.DataFrame) -> pd.DataFrame:
