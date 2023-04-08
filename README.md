@@ -84,5 +84,6 @@ Generate a requirements.txt file with only production dependencies:
 ```bash
 pipenv lock --requirements > ./src/requirements.txt
 pipenv lock requirements > ./src/requirements.txt
+pipenv requirements --dev > ./src/dev-requirements.txt
 ```
 
