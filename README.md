@@ -1,4 +1,4 @@
-# -igti-data-mlops-arch
+# igti-data-mlops-arch
 
 
 # Pipenv setup
