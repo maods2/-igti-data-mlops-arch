@@ -87,3 +87,11 @@ pipenv lock requirements > ./src/requirements.txt
 pipenv requirements --dev > ./src/dev-requirements.txt
 ```
 
+# Terraform
+
+```bash
+terraform apply --auto-approve -lock=false
+
+
+terraform import google_sql_database_instance.postgres projects/projeto-final-xp/instances/igti-mlops-db
+```
