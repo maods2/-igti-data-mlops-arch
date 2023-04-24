@@ -6,12 +6,13 @@ import psycopg2
 
 def query_stocks_available():
     # Establish a connection to the PostgreSQL database
-    db_password = os.environ.get('DB_PASSWORD')
+    # db_password = os.environ.get('DB_PASSWORD')
+    db_password = "senha@123"
     conn = psycopg2.connect(
-        database='mydatabase',
-        user='myusername',
+        database='finance_db',
+        user='admin',
         password=db_password,
-        host='localhost',
+        host='35.188.18.214',
         port='5432',
     )
 
@@ -20,7 +21,7 @@ def query_stocks_available():
 
     # Execute a SELECT statement to retrieve data from a table
     cur.execute(
-        'SELECT stock_code, stock_name, status FROM finance_ml.stock_data'
+        'SELECT stock_code, stock_name, status FROM mlops.stock_data'
     )
 
     # Fetch all rows of the result

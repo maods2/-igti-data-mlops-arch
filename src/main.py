@@ -49,7 +49,7 @@ def start_daily_pipeline() -> bool:
     for stock_code in list_of_stocks:
         data = get_stock_data(stock_code)
         data = generate_indicators(data)
-        inset_into_bigquery(data)
+        # inset_into_bigquery(data)
 
     return True
 
@@ -57,3 +57,7 @@ def start_daily_pipeline() -> bool:
 def start_weekly_pipeline() -> bool:
     """This function is responsible for run the datapipeline"""
     pass
+
+
+if __name__ == "__main__":
+    start_daily_pipeline()
